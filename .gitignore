@@ -1,0 +1,39 @@
+# KiCad
+*-backups/
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.bak
+*.tmp
+*~
+*.kicad_prl
+fp-info-cache
+*.autosave
+
+# Fabricación
+*.gbr
+*.gbrjob
+*.drl
+*.pos
+*.rpt
+*.zip
+fabrication/
+outputs/
+gerber/
+plot/
+
+# BOM / netlist
+*.net
+*.xml
+*.csv
+*.tsv
+*.bom
+*.pdf
+
+# 3D (pesados, mejor LFS)
+*.step
+*.stp
+*.wrl
+*.3dshapes/
+
+# Python cache
+__pycache__/
