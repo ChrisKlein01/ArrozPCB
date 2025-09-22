@@ -9132,6 +9132,46 @@
 		)
 		(uuid "fe08284b-75ca-4729-996a-c1dc7f04afbd")
 	)
+	(label "D+"
+		(at 40.64 226.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "13a1cd12-6740-41ec-9989-f7b9ed05a298")
+	)
+	(label "D+"
+		(at 58.42 226.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a5bbf102-a112-49d0-9100-12bc03300c6f")
+	)
+	(label "D-"
+		(at 58.42 223.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "acde5148-06f1-46dd-8a3a-f1b7d70d0c25")
+	)
+	(label "D-"
+		(at 40.64 223.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bb137fb0-bc86-4341-87eb-411b71a726a3")
+	)
 	(global_label "3V3"
 		(shape output)
 		(at 182.88 256.54 0)
@@ -12056,7 +12096,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3f7d9417-763d-4dc4-a2f9-f342aecd9abe")
 		(property "Reference" "C14"
 			(at 41.91 38.0999 0)
@@ -15871,7 +15910,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d56862d9-cbd4-4bbb-a34e-4f490bef69a2")
 		(property "Reference" "R10"
 			(at 125.73 238.7599 0)
