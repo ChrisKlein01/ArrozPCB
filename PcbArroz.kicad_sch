@@ -5086,6 +5086,142 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Switch:SW_SPST"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_SPST"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Single Pole Single Throw (SPST) switch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch lever"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_SPST_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 0.254) (xy 1.524 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_SPST_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Transistor_BJT:SS8050"
 			(pin_names
 				(offset 0)
@@ -6884,7 +7020,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 148.59) (xy 146.05 151.13)
+			(xy 146.05 149.86) (xy 146.05 151.13)
 		)
 		(stroke
 			(width 0)
@@ -6974,7 +7110,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 257.81) (xy 66.04 257.81)
+			(xy 60.96 257.81) (xy 77.47 257.81)
 		)
 		(stroke
 			(width 0)
@@ -7774,7 +7910,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 257.81) (xy 66.04 255.27)
+			(xy 77.47 257.81) (xy 77.47 254)
 		)
 		(stroke
 			(width 0)
@@ -7831,16 +7967,6 @@
 			(type default)
 		)
 		(uuid "77fa8808-76d0-42a7-a4c8-19925874fcc2")
-	)
-	(wire
-		(pts
-			(xy 66.04 246.38) (xy 66.04 247.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7a42d8c6-7fe0-425f-95af-1e975f9f20cc")
 	)
 	(wire
 		(pts
@@ -8181,6 +8307,16 @@
 			(type default)
 		)
 		(uuid "a0028b5c-cc16-4b2d-8ec1-7d46385f67cc")
+	)
+	(wire
+		(pts
+			(xy 77.47 246.38) (xy 76.2 246.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a319db3c-f424-4d67-a086-2de178f9d094")
 	)
 	(wire
 		(pts
@@ -9172,7 +9308,7 @@
 		)
 		(uuid "bb137fb0-bc86-4341-87eb-411b71a726a3")
 	)
-	(global_label "3V3"
+	(global_label "+3.3V"
 		(shape output)
 		(at 182.88 256.54 0)
 		(fields_autoplaced yes)
@@ -9184,7 +9320,7 @@
 		)
 		(uuid "0555f7ee-4ea2-4ac5-802d-f2a4ee4be146")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 189.3728 256.54 0)
+			(at 191.55 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9258,7 +9394,7 @@
 			)
 		)
 	)
-	(global_label "3V3"
+	(global_label "+3.3V"
 		(shape input)
 		(at 63.5 147.32 90)
 		(fields_autoplaced yes)
@@ -9270,7 +9406,7 @@
 		)
 		(uuid "0902de5d-7796-429a-af3d-4ea169ea40f2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 63.5 140.8272 90)
+			(at 63.5 138.65 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10225,9 +10361,9 @@
 			)
 		)
 	)
-	(global_label "3V3"
+	(global_label "+3.3V"
 		(shape input)
-		(at 146.05 148.59 90)
+		(at 146.05 149.86 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10237,7 +10373,7 @@
 		)
 		(uuid "a0a3b25c-9cd2-4999-91dc-40b56cf287c5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 146.05 142.0972 90)
+			(at 146.05 141.19 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10247,7 +10383,7 @@
 			)
 		)
 		(property "Netclass" "Power"
-			(at 148.2408 148.59 90)
+			(at 148.2408 149.86 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12631,16 +12767,15 @@
 	)
 	(symbol
 		(lib_id "Device:Battery_Cell")
-		(at 66.04 252.73 0)
+		(at 77.47 251.46 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "48cb7371-d119-4279-9e46-6a37471c518f")
 		(property "Reference" "BT2"
-			(at 69.85 249.6184 0)
+			(at 81.788 248.666 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12649,7 +12784,7 @@
 			)
 		)
 		(property "Value" "Battery_Cell"
-			(at 69.85 252.1584 0)
+			(at 76.962 252.222 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12658,7 +12793,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_EH_S2B-EH_1x02_P2.50mm_Horizontal"
-			(at 66.04 251.206 90)
+			(at 77.47 249.936 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12667,7 +12802,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 66.04 251.206 90)
+			(at 77.47 249.936 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12676,7 +12811,7 @@
 			)
 		)
 		(property "Description" "Single-cell battery"
-			(at 66.04 252.73 0)
+			(at 77.47 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14334,6 +14469,73 @@
 			(project "Arroz1"
 				(path "/80d6a340-3f89-493a-85f7-c642314f6a81"
 					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_SPST")
+		(at 71.12 246.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "927eae6b-fd4c-45fd-a485-e37c8fb24ae2")
+		(property "Reference" "SW2"
+			(at 71.12 248.412 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_SPST"
+			(at 70.104 250.444 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_DIP_SPSTx01_Slide_6.7x4.1mm_W7.62mm_P2.54mm_LowProfile"
+			(at 71.12 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 71.12 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Single Pole Single Throw (SPST) switch"
+			(at 71.12 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "73f90a2d-e1d4-43e7-b1f9-2d8884d4d177")
+		)
+		(pin "1"
+			(uuid "6954a708-7bf1-4a47-92d9-92de4b1a8bab")
+		)
+		(instances
+			(project ""
+				(path "/80d6a340-3f89-493a-85f7-c642314f6a81"
+					(reference "SW2")
 					(unit 1)
 				)
 			)
