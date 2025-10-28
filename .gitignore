@@ -37,3 +37,12 @@ plot/
 
 # Python cache
 __pycache__/
+
+*.bak
+*.tmp
+*.kicad_prl
+*.net
+*.xml
+__pycache__/
+*.DS_Store
+Thumbs.db
