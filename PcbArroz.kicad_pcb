@@ -103,7 +103,7 @@
 		(grid_origin 187.6318 159.2346)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_57555fff)
-			(plot_on_all_layers_selection 0x00000000_00000000_00000000_020000f5)
+			(plot_on_all_layers_selection 0x00000000_00000000_00000000_02000000)
 			(disableapertmacros no)
 			(usegerberextensions no)
 			(usegerberattributes yes)
