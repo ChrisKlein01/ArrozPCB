@@ -594,7 +594,7 @@
       "plot": "GerbersV2/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "PCB_LoRa+GPS.step",
       "svg": "",
       "vrml": ""
     },
