@@ -1,4 +1,5 @@
 (sym_lib_table
   (version 7)
   (lib (name "Elementos")(type "KiCad")(uri "${KIPRJMOD}/Elementos.kicad_sym")(options "")(descr ""))
+  (lib (name "teseo")(type "KiCad")(uri "C:/Users/renzo/OneDrive/Documentos/PcbArroz/kicadlibreria/KiCADv6/2025-12-17_20-52-51.kicad_sym")(options "")(descr ""))
 )
