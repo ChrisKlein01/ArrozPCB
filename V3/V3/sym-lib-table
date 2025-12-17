@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Elementos")(type "KiCad")(uri "${KIPRJMOD}/Elementos.kicad_sym")(options "")(descr ""))
+)
