@@ -2466,23 +2466,23 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0 0)
+			(property "Reference" "AP2112K-3.3TRG1"
+				(at 1.524 -1.524 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
+			(property "Value" "~"
+				(at 1.905 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2501,6 +2501,15 @@
 				)
 			)
 			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC" "C23380830"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2533,7 +2542,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2551,7 +2560,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2569,7 +2578,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2587,7 +2596,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2605,7 +2614,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2620,23 +2629,25 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0 0)
+			(property "Reference" "LGS4056HDA1"
+				(at 2.5399 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
+			(property "Value" "~"
+				(at 5.0799 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.5mm_EP1.7x2.4mm"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2656,6 +2667,15 @@
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC" "C5124109"
+				(at 0 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2687,7 +2707,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2705,7 +2725,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2723,7 +2743,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2741,7 +2761,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2759,7 +2779,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2777,7 +2797,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "7"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2795,7 +2815,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2813,7 +2833,7 @@
 							)
 						)
 					)
-					(number ""
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -10836,7 +10856,7 @@
 			)
 		)
 	)
-	(global_label "VDD_3v3"
+	(global_label "VDD_3V3"
 		(shape input)
 		(at 29.21 278.13 180)
 		(fields_autoplaced yes)
@@ -10848,7 +10868,7 @@
 		)
 		(uuid "a598975c-c1dc-4d67-907a-90b7c2a4b0fe")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 18.242 278.13 0)
+			(at 18.121 278.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13818,7 +13838,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "33001450-eb9c-4e5a-8eef-21bfd2d0c70b")
-		(property "Reference" "2n7002bks1"
+		(property "Reference" "U8"
 			(at 64.008 265.43 0)
 			(effects
 				(font
@@ -13826,8 +13846,8 @@
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 63.5 251.46 0)
+		(property "Value" "2n7002bks1"
+			(at 63.5 270.764 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13891,7 +13911,7 @@
 		(instances
 			(project ""
 				(path "/f20c1557-6840-4cf5-bfcb-5ed671cb3443"
-					(reference "2n7002bks1")
+					(reference "U8")
 					(unit 1)
 				)
 			)
@@ -14294,7 +14314,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Teseo:ARRAY_LIV3R_STM"
+		(property "Footprint" "Footprints:Teseo"
 			(at 269.24 38.1 0)
 			(effects
 				(font
@@ -14480,7 +14500,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "477366a5-a2ff-4db6-98f2-9cfce368e2a7")
-		(property "Reference" "AP2112K-3.3TRG1"
+		(property "Reference" "U6"
 			(at 112.014 33.274 0)
 			(effects
 				(font
@@ -14488,7 +14508,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "AP2112K-3.3TRG1"
 			(at 112.395 31.75 0)
 			(effects
 				(font
@@ -14532,25 +14552,25 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "3"
 			(uuid "3478c3f7-5d32-4bf0-9c4e-c92fd3caa9c5")
 		)
-		(pin ""
+		(pin "5"
 			(uuid "c8de2afe-3521-4383-983a-5770194375d5")
 		)
-		(pin ""
+		(pin "4"
 			(uuid "8afd43a7-a910-4645-b543-52ccdd64a9c3")
 		)
-		(pin ""
+		(pin "1"
 			(uuid "3147c8cf-b199-4972-a939-1f6e9727957b")
 		)
-		(pin ""
+		(pin "2"
 			(uuid "d05a9919-96bb-420a-944d-ec17eb943b18")
 		)
 		(instances
 			(project ""
 				(path "/f20c1557-6840-4cf5-bfcb-5ed671cb3443"
-					(reference "AP2112K-3.3TRG1")
+					(reference "U6")
 					(unit 1)
 				)
 			)
@@ -17863,7 +17883,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9eec4540-2cbb-4ec3-bdb0-ac96a20cb44e")
-		(property "Reference" "LGS4056HDA1"
+		(property "Reference" "U2"
 			(at 105.41 73.6599 90)
 			(effects
 				(font
@@ -17872,7 +17892,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "LGS4056HDA1"
 			(at 105.41 76.1999 90)
 			(effects
 				(font
@@ -17917,34 +17937,34 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "4"
 			(uuid "56c2ad93-342e-4743-9afd-635a9e3f0a2f")
 		)
-		(pin ""
+		(pin "3"
 			(uuid "ba9737eb-4673-409c-afc0-d54c9ffe1fd2")
 		)
-		(pin ""
+		(pin "5"
 			(uuid "80eb191f-6cf2-40cd-9e47-07803bd076d4")
 		)
-		(pin ""
+		(pin "8"
 			(uuid "072f5ff0-b66b-46f0-961c-800d2da340ed")
 		)
-		(pin ""
+		(pin "6"
 			(uuid "fa958707-1d9e-4eb2-9282-5c2a058f6121")
 		)
-		(pin ""
+		(pin "1"
 			(uuid "e0edba8e-947f-4b46-8100-185948bf3aee")
 		)
-		(pin ""
+		(pin "2"
 			(uuid "5bfed51e-90b8-44eb-a306-12c8cefe6342")
 		)
-		(pin ""
+		(pin "7"
 			(uuid "9bc5e9e1-a5d0-4bb0-8a44-450809f94dd0")
 		)
 		(instances
 			(project ""
 				(path "/f20c1557-6840-4cf5-bfcb-5ed671cb3443"
-					(reference "LGS4056HDA1")
+					(reference "U2")
 					(unit 1)
 				)
 			)
@@ -20724,7 +20744,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Battery:BatteryHolder_Keystone_1057_1x2032"
+		(property "Footprint" "Footprints:pila"
 			(at 365.76 69.85 0)
 			(effects
 				(font
