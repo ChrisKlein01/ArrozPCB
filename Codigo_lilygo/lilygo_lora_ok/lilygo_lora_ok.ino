@@ -22,10 +22,10 @@ void os_getDevKey(u1_t* buf) { memcpy_P(buf, APPKEY, 16); }
 
 // Pines LilyGO T3
 const lmic_pinmap lmic_pins = {
-    .nss = 18,
+    .nss = 8,
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = 23,
-    .dio = {26, 33, 32},
+    .rst = 6,
+    .dio = {12, 13, 14},
     .rxtx_rx_active = 0,
     .rssi_cal = 10,
     .spi_freq = 8000000
