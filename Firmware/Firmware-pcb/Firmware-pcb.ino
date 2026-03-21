@@ -6,7 +6,7 @@
  * Hardware:
  *   - ESP32-S3
  *   - LoRa SX1276 / RFM95
- *   - Sensor ultrasónico AJ-SR04M
+ *   - Sensor ultrasónico RCWL-1655
  *   - GPS Teseo LIV3R
  *
  * Red: LoRaWAN OTAA via TTN / ChirpStack (US915)
@@ -88,9 +88,9 @@
 
 #define ALTURA_SENSOR_CM   100
 #define GPS_TIMEOUT_MS   450000
-#define SENSOR_MUESTRAS       3
+#define SENSOR_MUESTRAS       4
 #define SENSOR_MIN_VALIDAS    2
-#define DEFAULT_INTERVAL     90
+#define DEFAULT_INTERVAL     2400
 
 // ============================================================================
 // CREDENCIALES OTAA
@@ -100,10 +100,10 @@ static const u1_t PROGMEM APPEUI[8] = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
 static const u1_t PROGMEM DEVEUI[8] = {    //LSB
-0x90, 0x70, 0x69, 0xFE, 0xFF, 0x1C, 0x4A, 0x8C
+0xA1, 0x04, 0xCF, 0x4A, 0x79, 0x58, 0x29, 0x18
 };
 static const u1_t PROGMEM APPKEY[16] = {  //MSB
-0xE1, 0x24, 0x83, 0xCA, 0x47, 0xE5, 0x18, 0x4F, 0xEC, 0xE3, 0x78, 0x7E, 0xA0, 0x84, 0x7C, 0xE6
+0xE2, 0x89, 0xD4, 0x61, 0xE7, 0xF2, 0x74, 0x56, 0xA4, 0x58, 0xE2, 0x98, 0x3B, 0x1D, 0xD7, 0x4C
 };
 
 void os_getArtEui(u1_t* buf) { memcpy_P(buf, APPEUI,  8); }
@@ -226,7 +226,7 @@ bool gpsBuscarFix() {
     // --- Warm-up: descartar las primeras 4 lecturas ---
     for (int i = 0; i < 4; i++) {
         unsigned long t = millis();
-        while (millis() - t < 1000) {  // 1 lectura por segundo (ritmo del GPS)
+        while (millis() - t < 1000) {
             while (gpsSerial.available()) nmea.process(gpsSerial.read());
             delay(10);
         }
@@ -254,7 +254,6 @@ bool gpsBuscarFix() {
     }
 
     // --- Descartar max y min de lat, promediar las 5 restantes ---
-    // (usamos lat como criterio de ordenamiento, suficiente para outliers)
     int minIdx = 0, maxIdx = 0;
     for (int i = 1; i < 7; i++) {
         if (lats[i] < lats[minIdx]) minIdx = i;
@@ -307,7 +306,7 @@ void gpsRunYApagar() {
 
 
 // ============================================================================
-// SENSOR ULTRASÓNICO
+// SENSOR ULTRASÓNICO — RCWL-1655
 // ============================================================================
 
 float medirDistancia() {
@@ -316,24 +315,28 @@ float medirDistancia() {
     digitalWrite(TRIG_PIN, LOW);
     delayMicroseconds(4);
     digitalWrite(TRIG_PIN, HIGH);
-    delayMicroseconds(15);
+    delayMicroseconds(20);          // RCWL-1655 requiere mínimo 20µs
     digitalWrite(TRIG_PIN, LOW);
 
+    // Esperar flanco de subida del ECHO
     unsigned long t = micros();
-    while (digitalRead(ECHO_PIN) == LOW  && micros() - t < timeout);
+    while (digitalRead(ECHO_PIN) == LOW && micros() - t < timeout);
     if (micros() - t >= timeout) return -1.0;
 
-    t = micros();
-    while (digitalRead(ECHO_PIN) == HIGH && micros() - t < timeout);
-    if (micros() - t >= timeout) return -1.0;
+    // Medir duración del pulso ECHO
+    unsigned long echoStart = micros();
+    while (digitalRead(ECHO_PIN) == HIGH && micros() - echoStart < timeout);
+    if (micros() - echoStart >= timeout) return -1.0;
 
-    float dist = (micros() - t) * 0.0343f / 2.0f;
+    unsigned long echoEnd = micros();
+
+    float dist = (echoEnd - echoStart) * 0.0343f / 2.0f;
     return (dist >= 1.0f && dist <= 500.0f) ? dist : -1.0;
 }
 
 float medirNivelAgua() {
     digitalWrite(SENSOR_PWR_PIN, HIGH);
-    delay(500);  // Estabilización — 100ms era insuficiente desde dentro de LMIC
+    delay(1000);  // RCWL-1655 necesita más tiempo de estabilización que el AJ-SR04M
 
     float suma    = 0.0;
     int   validas = 0;
@@ -341,7 +344,7 @@ float medirNivelAgua() {
     for (int i = 0; i < 3; i++) {
         float d = medirDistancia();
         if (d > 0.0) { suma += d; validas++; }
-        delay(100);  // Más tiempo entre mediciones
+        delay(100);
     }
 
     digitalWrite(SENSOR_PWR_PIN, LOW);
@@ -392,11 +395,6 @@ void procesarDownlink(uint8_t* data, size_t len) {
             break;
 
         case 0x03:
-            /*
-             * El GPS se ejecutará al inicio del PRÓXIMO ciclo, antes del TX,
-             * para que las coordenadas frescas queden en el payload.
-             * Se respeta el timeout completo de GPS_TIMEOUT_MS.
-             */
             gpsRequested = true;
             Serial.println("[DL] GPS solicitado para el proximo ciclo.");
             break;
@@ -516,11 +514,6 @@ void onEvent(ev_t ev) {
                 procesarDownlink(LMIC.frame + LMIC.dataBeg, LMIC.dataLen);
             }
 
-            /*
-             * Primer boot: correr GPS DESPUÉS del TX para no demorar
-             * la primera comunicación. Las coordenadas quedan en RTC
-             * y se incluyen a partir del segundo ciclo.
-             */
             if (firstBoot) {
                 Serial.println("[GPS] Primer boot: buscando posicion post-TX...");
                 gpsRunYApagar();
@@ -551,7 +544,7 @@ void onEvent(ev_t ev) {
 
 void setup() {
     Serial.begin(115200);
-    delay(100);  // Mínimo para estabilizar UART
+    delay(100);
 
     bootCount++;
     firstBoot    = (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_UNDEFINED);
@@ -569,14 +562,11 @@ void setup() {
     digitalWrite(TRIG_PIN,       LOW);
 
     // --- GPS ---
-    // Primer boot: GPS va DESPUÉS del TX (ver EV_TXCOMPLETE)
-    // gpsRequested (downlink 0x03): GPS ANTES del TX para tener coords en el payload
     if (!firstBoot && gpsRequested) {
-        gpsRequested = false;  // Consumir el flag
+        gpsRequested = false;
         Serial.println("[GPS] GPS solicitado — corriendo antes del TX...");
         gpsRunYApagar();
     } else {
-        // Asegurar módulo apagado
         pinMode(PNP_GPS,   OUTPUT);
         pinMode(RESET_GPS, OUTPUT);
         digitalWrite(PNP_GPS,   HIGH);
@@ -599,7 +589,6 @@ void setup() {
         Serial.println("[LORA] Restaurando sesion desde RTC...");
         LMIC = RTC_LMIC;
 
-        // Resetear timers — os_getTime() vuelve a 0 en cada boot
         ostime_t now = os_getTime();
         LMIC.globalDutyAvail = now;
         LMIC.opmode &= ~(OP_JOINING | OP_REJOIN | OP_TXDATA | OP_POLL);
