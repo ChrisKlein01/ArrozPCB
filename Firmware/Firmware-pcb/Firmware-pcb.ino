@@ -581,7 +581,7 @@ void setup() {
     os_init();
 
     LMIC_setClockError(MAX_CLOCK_ERROR * 30 / 100);
-    LMIC_setAdrMode(0);
+    LMIC_setAdrMode(1);
     LMIC_setDrTxpow(DR_SF7, 14);
     LMIC_setLinkCheckMode(0);
 
