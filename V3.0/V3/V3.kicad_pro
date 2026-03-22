@@ -653,6 +653,9 @@
       "ECHO_Sensor": [
         "IO"
       ],
+      "GPIO35": [
+        "Power"
+      ],
       "MISO_LoRa": [
         "IO"
       ],
