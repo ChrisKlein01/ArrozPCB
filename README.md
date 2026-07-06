@@ -1,4 +1,4 @@
-# ArrozPCB
+# IoT System for Water Management in Rice Paddies
 
 Embedded IoT system for LoRa + GPS telemetry, integrating firmware, PCB design iterations, and a Node-RED backend.
 
