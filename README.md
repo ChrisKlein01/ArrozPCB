@@ -36,7 +36,7 @@ For example, Power management and USB to UART modules.
 <h2>Firmware Flow Diagram</h2>
 
 <p align="center">
-  <img src="Firmware/Firmware-pcb/Diagrama%20de%20Flujo.svg" width="90%">
+  <img src="Firmware/Diagrama%20de%20Flujo.svg" width="90%">
 </p>
 
 ## System Overview
